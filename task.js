@@ -25,7 +25,7 @@ fetchData(page);
 async function fetchData(page = 1, perPage) {
   try {
     loading = true;
-    let perPage= 100;
+    let perPage= 20;
     const response = await fetch(
       `https://api.github.com/search/users?q=followers:>0&sort=followers&order=desc&page=${page}&per_page=${perPage}`
     );
@@ -44,6 +44,7 @@ async function fetchData(page = 1, perPage) {
   } finally {
     loading = false;
   }
+
   perPage += 100;
 }
 
